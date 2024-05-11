@@ -58,7 +58,7 @@ class Post(BaseModel):
     disctrict = models.ForeignKey(
         District, on_delete=models.CASCADE, related_name="posts"
     )
-    json = models.JSONField(null=True, blank=Ture)
+    json = models.JSONField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
