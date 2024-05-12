@@ -282,4 +282,4 @@ media/
 !.envs/.local/
 
 
-# db.sqlite3
+db.sqlite3
