@@ -1,7 +1,7 @@
 from django.db import models
 from utils.models import BaseModel
 
-# Create your models here.
+
 class OptionType(models.TextChoices):
     SINGLE = 'Single'
     BUTTON = 'Button'
@@ -33,6 +33,7 @@ class Option(BaseModel):
 class OptionValue(BaseModel):
     option = models.ForeignKey(Option, on_delete=models.CASCADE, related_name="values")
     value = models.CharField(max_length=256)
+    code = models.CharField(max_length=256, null=True, blank=True)
 
     def __str__(self):
         return self.value
@@ -44,7 +45,8 @@ class OptionValueExtended(BaseModel):
 
     def __str__(self):
         return self.value
-    
+
+
 class PostOption(BaseModel):
     post = models.ForeignKey(
         'avto.Post', on_delete=models.CASCADE, related_name="postoptions"
@@ -55,7 +57,6 @@ class PostOption(BaseModel):
     def __str__(self):
         return f'{self.option} {self.value}'
 
-    
     @classmethod
     def generate_json_options(cls, post_id):
         data = {
