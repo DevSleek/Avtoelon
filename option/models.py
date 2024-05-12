@@ -47,6 +47,11 @@ class OptionValueExtended(BaseModel):
         return self.value
 
 
+class OptionValueExtendedValue(BaseModel):
+    option_value_extended = models.ForeignKey(OptionValueExtended, on_delete=models.CASCADE, related_name='optionvalueextendedvalue')
+    value = models.CharField(max_length=256, null=True, blank=True)
+
+
 class PostOption(BaseModel):
     post = models.ForeignKey(
         'avto.Post', on_delete=models.CASCADE, related_name="postoptions"
@@ -100,8 +105,8 @@ class PostOption(BaseModel):
                     else:
                         data["model"] = value.option_value.value
         return data
-    
-    
+
+
 class PostOptionValue(BaseModel):
     post_option = models.ForeignKey(
         PostOption, on_delete=models.CASCADE, related_name="postoptionvalues"
