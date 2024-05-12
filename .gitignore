@@ -281,5 +281,5 @@ media/
 .envs/*
 !.envs/.local/
 
-
+# Project database
 db.sqlite3
