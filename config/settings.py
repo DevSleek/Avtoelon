@@ -153,3 +153,10 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "Documentation of API endpoints of My Avtoelon clone Project",
     "VERSION": "1.0.0",
 }
+
+# internal ips
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
