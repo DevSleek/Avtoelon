@@ -29,7 +29,8 @@ class Category(BaseModel):
 
     def __str__(self):
         return self.title
-    
+
+
 class SubCategory(BaseModel):
     title = models.CharField(max_length=256)
     category = models.ForeignKey(
@@ -81,6 +82,7 @@ class Post(BaseModel):
         data["photos_count"] = self.photos.count()
         
         return data
+
 
 class Photo(BaseModel):
     image = models.ImageField(upload_to="photos")
